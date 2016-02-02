@@ -1,0 +1,49 @@
+CONTENTS OF THIS FOLDER
+---------------------
+   
+ * Introduction
+This folder contains the pairwise experiment data conducted in January 30- Feb 1, 2016.
+- pairwise_fulldata.db is the raw database file storing the original experiment data. 
+- parser_for_pair_data.py can parse the data and store it into the /experiment_data folder. 
+- faceKey.pem is the key to connect to the ec2 server
+- README_PARSER.txt explains the data structure of the doublet.csv data. 
+- list_of_face_images.txt stores the mapping from Chicago dataset's original image names to new image names. 
+
+ * Doublet Data format:
+Column 1: worker counter (indicate the sequence of the worker taking the experiment)
+Column 2: assignment ID
+Column 3: worker ID
+Column 4: hit ID
+Column 5: trial type
+	    0   instruction 
+	    1   practice
+	    2   actual trial
+	    3   catchy question
+Column 6: set number
+Column 7: react_time (in ms)
+Column 8: similarity score
+	  for catchy question:
+	  	true   means the subject provides the correct answer
+		false   otherwise
+	  for actual trial question:
+		1   maximally dissimilar
+		9   maximally similar
+Column 9 & 10: two stimuli (image index)
+
+
+* Basic experiment setting. 
+Each set contains (0) instruction, (1) practice (2) actual trials (3) catchy questions. 
+(0) and (1) are the same for everyone. 
+(2) contains 100 pairs of different images repeating twice so there are 200 actual trials.
+(3) 2 catchy questions is randomly drawn from (2). 
+
+The experiment set sequence is stored at: 
+https://github.com/amandasongmm/filesPublic/tree/master/vicente_pair_jan
+
+The experiment images is stored at:
+http://52.24.142.90/images/img/
+It's from the Chicago dataset. 
+
+The mapping from the original image name to the new name can be found in the same folder:
+list_of_face_images.txt
+
